@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import qiniu
 import json
 import os
@@ -60,6 +61,10 @@ if __name__ == "__main__":
     if len(args)>1:
         print("Param is no more than 1")
         exit(0)
+    elif len(args)==1:
+        pass
+    else:
+        print("See -h or --helpe for user instruction")
     # upload one image
     path = args[0]
     print(upload(path))
@@ -68,7 +73,7 @@ if __name__ == "__main__":
             help()
         if name in ("-i", "--ip"):
             pass
-        if name in ("-p", "--port"):
+        if name in ("-o", "--out"):
             print('port is----', value)
     options, args = getopt.getopt(sys.argv[1:], "hp:i:", ["help", "ip=", "port="])
 
